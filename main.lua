@@ -1,6 +1,7 @@
 function love.load()
     x = 400
     y = 300
+
 end
 
 function love.update()
@@ -16,6 +17,10 @@ function love.update()
         end
         if love.keyboard.isDown("d") then
             x = x + 2
+        end
+        if love.keyboard.isDown("b") then
+            love.window.close()
+            love.event.quit()
         end
     end
 end
