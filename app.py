@@ -28,9 +28,9 @@ class App:
         pg.quit()
     def getplayerpicture(self):
         if self.heddedright == True:
-            self.player = pygame.image.load("textures/player2.png")
+            self.player = pg.image.load("textures/player2.png")
         else :
-            self.player = pygame.image.load("textures/player.jpg")
+            self.player = pg.image.load("textures/player.jpg")
         self.darwlist.append([self.player, self.x, self.y])
     def on_execute(self):
         if self.on_init() == False:
