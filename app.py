@@ -11,6 +11,8 @@ class App:
         pg.init()
         self._display_surf = pg.display.set_mode(self.size, pg.HWSURFACE)
         pg.display.set_caption("Jumping Chicken")
+        self.player = pg.image.load("textures/player2.png")
+        pg.display.set_icon(self.player)
         self._running = True
         self.heddedright = True
         self.darwlist = []
@@ -29,10 +31,10 @@ class App:
         pg.quit()
     def getplayerpicture(self):
         if self.heddedright == True:
-            self.player = pg.image.load("textures/player2.png");
+            self.player = pg.image.load("textures/player2.png")
         else :
-            self.player = pg.image.load("textures/player.jpg");
-        self.darwlist.append([self.player, self.x, self.y]);
+            self.player = pg.image.load("textures/player.jpg")
+        self.darwlist.append([self.player, self.x, self.y])
     def on_execute(self):
         if self.on_init() == False:
             self._running = False
