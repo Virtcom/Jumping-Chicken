@@ -11,6 +11,10 @@ class App:
         pg.init()
         self._display_surf = pg.display.set_mode(self.size, pg.HWSURFACE)
         self._running = True
+        self.heddedright = True
+        self.darwlist = []
+        self.px = 50
+        self.py = 50
 
     def on_event(self, event):
         if event.type == pg.QUIT:
@@ -22,12 +26,18 @@ class App:
         pass
     def on_cleanup(self):
         pg.quit()
-
+    def getplayerpicture(self):
+        if self.heddedright == True:
+            self.player = pygame.image.load("textures/player2.png")
+        else :
+            self.player = pygame.image.load("textures/player.jpg")
+        self.darwlist.append([])
     def on_execute(self):
         if self.on_init() == False:
             self._running = False
 
         while (self._running):
+            self.darwlist = []
             for event in pg.event.get():
                 self.on_event(event)
             self.on_loop()
