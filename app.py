@@ -3,51 +3,47 @@ from pygame.locals import *
 
 class App:
     def __init__(self):
-        self.running = True
-        self._display_surf = None
-        self.size = self.weight, self.height = 600, 400
+        self.running = True;
+        self._display_surf = None;
+        self.size = self.weight, self.height = 600, 400;
 
     def on_init(self):
-        pg.init()
-        self._display_surf = pg.display.set_mode(self.size, pg.HWSURFACE)
-        self._running = True
-        self.clock = pg.time.Clock()
-        self.heddedright = True
-        self.darwlist = []
-        self.px = 50
-        self.py = 50
+        pg.init();
+        self._display_surf = pg.display.set_mode(self.size, pg.HWSURFACE);
+        self._running = True;
+        self.heddedright = True;
+        self.darwlist = [];
+        self.px = 50;
+        self.py = 50;
 
     def on_event(self, event):
         if event.type == pg.QUIT:
-            self._running = False
+            self._running = False;
 
     def on_loop(self):
-        self.getplayerpicture()
+        pass;
     def on_render(self):
-        for i in self.darwlist :
-            self._display_surf.blit(i[0], (i[1], i[2]))
-        pg.display.update()
-        self.clock.tick(60)
+        pass;
     def on_cleanup(self):
-        pg.quit()
+        pg.quit();
     def getplayerpicture(self):
         if self.heddedright == True:
-            self.player = pg.image.load("textures/player2.png")
+            self.player = pg.image.load("textures/player2.png");
         else :
-            self.player = pg.image.load("textures/player.jpg")
-        self.darwlist.append([self.player, self.px, self.py])
+            self.player = pg.image.load("textures/player.jpg");
+        self.darwlist.append([self.player, self.x, self.y]);
     def on_execute(self):
         if self.on_init() == False:
-            self._running = False
+            self._running = False;
 
         while (self._running):
-            self.darwlist = []
+            self.darwlist = [];
             for event in pg.event.get():
                 self.on_event(event)
-            self.on_loop()
-            self.on_render()
-        self.on_cleanup()                
+            self.on_loop();
+            self.on_render();
+        self.on_cleanup();                
 
 if __name__ == "__main__":
-    theApp = App()
-    theApp.on_execute()
+    theApp = App();
+    theApp.on_execute();
