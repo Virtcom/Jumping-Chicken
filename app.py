@@ -5,7 +5,7 @@ class App:
     def __init__(self):
         self.running = True
         self._display_surf = None
-        self.size = self.weight, self.height = 1, 1
+        self.size = self.weight, self.height = 600, 400
 
     def on_init(self):
         pg.init()
