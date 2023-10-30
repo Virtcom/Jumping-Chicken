@@ -31,7 +31,7 @@ class App:
             self.player = pygame.image.load("textures/player2.png")
         else :
             self.player = pygame.image.load("textures/player.jpg")
-        self.darwlist.append([])
+        self.darwlist.append([self.player, self.x, self.y])
     def on_execute(self):
         if self.on_init() == False:
             self._running = False
