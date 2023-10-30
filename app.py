@@ -11,6 +11,7 @@ class App:
         pg.init()
         self._display_surf = pg.display.set_mode(self.size, pg.HWSURFACE)
         self._running = True
+        self.clock = pg.time.Clock()
         self.heddedright = True
         self.darwlist = []
         self.px = 50
@@ -21,9 +22,12 @@ class App:
             self._running = False
 
     def on_loop(self):
-        pass
+        self.getplayerpicture()
     def on_render(self):
-        pass
+        for i in self.darwlist :
+            self._display_surf.blit(i[0], (i[1], i[2]))
+        pg.display.update()
+        self.clock.tick(60)
     def on_cleanup(self):
         pg.quit()
     def getplayerpicture(self):
@@ -31,7 +35,7 @@ class App:
             self.player = pg.image.load("textures/player2.png")
         else :
             self.player = pg.image.load("textures/player.jpg")
-        self.darwlist.append([self.player, self.x, self.y])
+        self.darwlist.append([self.player, self.px, self.py])
     def on_execute(self):
         if self.on_init() == False:
             self._running = False
